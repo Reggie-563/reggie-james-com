@@ -1,0 +1,9 @@
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+  <button type="button" class="lb-x" id="lbClose" aria-label="Close video"><svg viewBox="0 0 18 18"><path d="M4 4l10 10M14 4 4 14"/></svg></button>
+  <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Previous video"><svg viewBox="0 0 18 18"><path d="M11 4 6 9l5 5"/></svg></button>
+  <figure class="lb-fig">
+    <div class="lb-frame"><video id="lbv" playsinline controls preload="auto"></video><p class="lb-err" id="lbErr" hidden>This video could not be loaded. Please try again in a moment.</p></div>
+    <figcaption><b id="lbTitle"></b><span id="lbCount"></span><p id="lbSummary"></p></figcaption>
+  </figure>
+  <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Next video"><svg viewBox="0 0 18 18"><path d="M7 4l5 5-5 5"/></svg></button>
+</div>

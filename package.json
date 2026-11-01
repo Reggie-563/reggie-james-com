@@ -1,0 +1,14 @@
+{
+  "name": "reggie-james-com",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "engines": { "node": ">=20" },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.2",
+    "fast-xml-parser": "4.5.0"
+  }
+}

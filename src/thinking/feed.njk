@@ -1,0 +1,23 @@
+---
+permalink: /thinking/feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Reggie James: Thinking</title>
+  <link>{{ site.url }}/thinking/</link>
+  <atom:link href="{{ site.url }}/thinking/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Articles by Reggie James on go-to-market, brand, AI and building technology businesses.</description>
+  <language>en-GB</language>
+  {%- for p in collections.thinking %}
+  <item>
+    <title>{{ p.data.title }}</title>
+    <link>{{ p.url | abs(site.url) }}</link>
+    <guid>{{ p.url | abs(site.url) }}</guid>
+    <pubDate>{{ p.date.toUTCString() }}</pubDate>
+    <description>{{ p.data.description }}</description>
+  </item>
+  {%- endfor %}
+</channel>
+</rss>

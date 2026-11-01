@@ -1,0 +1,60 @@
+# Settings for Pages CMS (app.pagescms.org), the web editor for adding Thinking articles.
+media:
+  input: src/assets/uploads
+  output: /assets/uploads
+  categories: [image]
+
+content:
+  - name: thinking
+    label: Thinking articles
+    type: collection
+    path: src/thinking/posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    exclude: [posts.11tydata.js]
+    view:
+      fields: [title, date, draft]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Summary
+        description: One or two sentences, around 150 characters. Shown on the Thinking page and in Google results.
+        type: text
+        required: true
+      - name: date
+        label: Publish date
+        type: date
+        required: true
+      - name: draft
+        label: Draft (hidden from the site)
+        type: boolean
+        default: true
+      - name: image
+        label: Cover image
+        description: Landscape, at least 1200 pixels wide.
+        type: image
+      - name: imageAlt
+        label: Cover image description
+        description: A short description of the picture, for people using screen readers and for search engines.
+        type: string
+      - name: tags
+        label: Topics
+        type: string
+        list: true
+      - name: canonicalUrl
+        label: Original address (optional)
+        description: If this article was first published on Substack or Medium, paste that link here so Google credits the original.
+        type: string
+      - name: updated
+        label: Last updated (optional)
+        type: date
+      - name: body
+        label: Article
+        type: rich-text

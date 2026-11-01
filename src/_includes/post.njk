@@ -1,0 +1,37 @@
+---
+layout: base.njk
+bodyClass: inner
+ogType: article
+schemaTemplate: schema-post.njk
+---
+<article class="article">
+  <header class="page-head dark">
+    <div class="wrap">
+      <a class="back" href="/thinking/">Thinking</a>
+      <h1 class="h-sec">{{ title }}</h1>
+      {%- if description %}<p class="lede">{{ description }}</p>{% endif %}
+      <p class="meta">By <a href="/">Reggie James</a>, <time datetime="{{ page.date | isoDate }}">{{ page.date | ukDate }}</time>, {{ content | readingTime }}</p>
+    </div>
+  </header>
+  {%- if image %}
+  <figure class="cover wrap"><img src="{{ image }}" alt="{{ imageAlt }}" width="1200" height="675" fetchpriority="high"></figure>
+  {%- endif %}
+  <div class="wrap">
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+    <footer class="post-foot">
+      {%- if tags and tags.length %}<ul class="tags">{% for t in tags %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+      <div class="share">
+        <span>Share</span>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | abs(site.url) | urlencode }}" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/intent/post?url={{ page.url | abs(site.url) | urlencode }}&text={{ title | urlencode }}" target="_blank" rel="noopener">X</a>
+      </div>
+      <div class="post-cta">
+        <p>Working on a go-to-market, brand or growth question? I would like to hear about it.</p>
+        <a class="pill" href="/#contact">Get in touch</a>
+      </div>
+      <a class="textlink" href="/thinking/">More thinking</a>
+    </footer>
+  </div>
+</article>

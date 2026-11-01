@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{%- set purl = page.url or '/' %}
+{%- set pageTitle = title or site.title %}
+{%- set pageDesc = description or site.description %}
+{%- set canonical = canonicalUrl or (purl | abs(site.url)) %}
+{%- set ogImage = (image | abs(site.url)) if image else site.image %}
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDesc }}">
+<link rel="canonical" href="{{ canonical }}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Reggie James">
+<meta property="og:site_name" content="Reggie James">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:url" content="{{ purl | abs(site.url) }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDesc }}">
+<meta property="og:image" content="{{ ogImage }}">
+<meta property="og:image:alt" content="{{ imageAlt or 'Reggie James' }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@reggie_james_">
+<meta name="twitter:creator" content="@reggie_james_">
+<meta name="theme-color" content="#0F1317">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Reggie James: Thinking" href="/thinking/feed.xml">
+<link rel="preload" href="/assets/fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+{%- if preloadHero %}
+<link rel="preload" href="/assets/img/hero-cut.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/assets/img/hero.webp" as="image">
+{%- endif %}
+<link rel="stylesheet" href="/assets/css/site.css">
+{%- if schemaTemplate %}{% include schemaTemplate %}{% endif %}
+</head>
+<body class="{{ bodyClass }}">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav{% if bodyClass == 'inner' %} solid{% endif %}" id="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="/">Reggie James<i>.</i></a>
+    <ul>
+      <li><a href="/#story">Career</a></li>
+      <li><a href="/#companies">Companies</a></li>
+      <li><a href="/#perspectives">Perspectives</a></li>
+      <li><a href="/thinking/"{% if '/thinking/' in purl %} aria-current="page"{% endif %}>Thinking</a></li>
+      <li><a class="pill" href="/#contact">Get in touch</a></li>
+    </ul>
+  </div>
+</nav>
+<main id="main">
+{{ content | safe }}
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="fcols">
+      <div class="fcol fbrand"><a class="mark" href="/">Reggie James<i>.</i></a><p>{{ site.location }}</p></div>
+      <div class="fcol"><h3>Follow</h3><ul>
+        <li><a href="{{ site.social.linkedin }}" target="_blank" rel="noopener me">LinkedIn</a></li>
+        <li><a href="{{ site.social.instagram }}" target="_blank" rel="noopener me">Instagram</a></li>
+        <li><a href="{{ site.social.x }}" target="_blank" rel="noopener me">X</a></li>
+        <li><a href="{{ site.social.youtube }}" target="_blank" rel="noopener">YouTube</a></li>
+      </ul></div>
+      <div class="fcol"><h3>Listen</h3><ul>
+        <li><a href="{{ site.social.spotify }}" target="_blank" rel="noopener">Spotify</a></li>
+        <li><a href="{{ site.social.apple }}" target="_blank" rel="noopener">Apple Podcasts</a></li>
+        <li><a href="{{ site.social.castbox }}" target="_blank" rel="noopener">Castbox</a></li>
+        <li><a href="{{ site.social.podcast }}" target="_blank" rel="noopener">Podcast website</a></li>
+      </ul></div>
+      <div class="fcol"><h3>Read</h3><ul>
+        <li><a href="/thinking/">Thinking</a></li>
+        <li><a href="{{ site.social.substack }}" target="_blank" rel="noopener me">Substack</a></li>
+        <li><a href="{{ site.social.medium }}" target="_blank" rel="noopener me">Medium</a></li>
+        <li><a href="{{ site.social.digitalClarityInsights }}" target="_blank" rel="noopener">Digital Clarity Insights</a></li>
+      </ul></div>
+      <div class="fcol"><h3>Company</h3><ul>
+        <li><a href="{{ site.social.digitalClarity }}" target="_blank" rel="noopener">Digital Clarity</a></li>
+        <li><a href="{{ site.social.digitalClarityLinkedin }}" target="_blank" rel="noopener">Digital Clarity on LinkedIn</a></li>
+      </ul></div>
+    </div>
+    <div class="fbase"><span>&copy; {{ buildDate.slice(0, 4) }} Reggie James</span><span>Digital Clarity is a trading name of Stylar Limited</span></div>
+  </div>
+</footer>
+{%- if lightbox %}{% include "lightbox.njk" %}{% endif %}
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

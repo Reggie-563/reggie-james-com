@@ -1,0 +1,40 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# Reggie James
+
+> Reggie James is a UK technology business builder and go-to-market adviser with 25 years in technology markets, based in Guildford, Surrey, and London. He founded Digital Clarity in 2002, built DC Storm within it through to its acquisition by Rakuten, and since 2011 has been COO, Senior Vice President and Executive Director of Digital Brand Media & Marketing Group, Inc. (OTC: DBMM), the US public company that owns Digital Clarity.
+
+He works with founders, CEOs and investors in technology, software and financial-services businesses on go-to-market strategy, proposition and positioning, brand, business development and applied AI.
+
+## Key facts
+
+- Founder and Managing Director, Digital Clarity (since 2002). Grew it to 25 to 30 people and more than 200 clients, including Adobe, Xerox and Bentley Systems.
+- Built DC Storm, a marketing measurement platform used by around 48% of major media planning and buying agencies before its acquisition by Rakuten.
+- COO, Senior Vice President and Executive Director, DBMM Group Inc. (OTC: DBMM), since 2011.
+- Earlier: AltaVista global sales; a senior commercial role at a Singapore internet business that listed on SIMEX and was acquired; technology publishing at VNU and Ziff Davis.
+- Selected client results: software ARR from $8m to $23m in three years; 88% EMEA revenue growth in 12 months with a 37.6% lower cost per acquisition; 30% more qualified demo requests year on year.
+- Host of the Reggie James - Perspectives podcast.
+
+## Pages
+
+- [Home]({{ site.url }}/): profile, career, companies, video clips, questions and contact
+- [Thinking]({{ site.url }}/thinking/): articles and notes
+{%- for p in collections.thinking %}
+- [{{ p.data.title | safe }}]({{ p.url | abs(site.url) }}): {{ p.data.description | safe }}
+{%- endfor %}
+
+## Video clips
+
+{%- for c in clips %}
+- [{{ c.title | safe }}]({{ site.url }}/videos/{{ c.slug }}.mp4): {{ c.summary | safe }}
+{%- endfor %}
+
+## Elsewhere
+
+- [LinkedIn]({{ site.social.linkedin }})
+- [Substack]({{ site.social.substack }})
+- [Medium]({{ site.social.medium }})
+- [Perspectives podcast]({{ site.social.podcast }})
+- [Digital Clarity]({{ site.social.digitalClarity }})

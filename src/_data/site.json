@@ -1,0 +1,27 @@
+{
+  "name": "Reggie James",
+  "url": "https://reggie-james.com",
+  "title": "Reggie James | Go-to-Market Strategy Adviser and Founder of Digital Clarity",
+  "description": "Reggie James is a UK technology business builder and go-to-market adviser. Founder of Digital Clarity, COO and Executive Director of DBMM Group Inc. (OTC: DBMM), and builder of DC Storm, acquired by Rakuten.",
+  "locale": "en_GB",
+  "location": "Guildford, Surrey and London",
+  "image": "https://reggie-james.com/og-image.jpg",
+  "formEndpoint": "",
+  "launchDate": "2026-11-01",
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/reggiejames",
+    "instagram": "https://www.instagram.com/reggiejames_1",
+    "x": "https://x.com/reggie_james_",
+    "youtube": "https://www.youtube.com/@Digitalclarityuk",
+    "substack": "https://reggiejamesperspectives.substack.com",
+    "medium": "https://reggie-james.medium.com/",
+    "podcast": "https://www.reggiejamespodcast.com/",
+    "spotify": "https://open.spotify.com/show/0Dl7BnrLYz4ILBqzdnQTBx",
+    "apple": "https://podcasts.apple.com/gb/podcast/reggie-james-perspectives/id1365114296",
+    "castbox": "https://castbox.fm/channel/Reggie-James---Perspectives-id1220527",
+    "rss": "https://anchor.fm/s/306f7cc/podcast/rss",
+    "digitalClarity": "https://www.digital-clarity.com",
+    "digitalClarityInsights": "https://www.digital-clarity.com/insights",
+    "digitalClarityLinkedin": "https://www.linkedin.com/company/digital-clarity"
+  }
+}
