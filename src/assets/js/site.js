@@ -112,10 +112,15 @@
       var endpoint = form.getAttribute('data-endpoint');
       if(!endpoint){ say('The form is not connected yet. Please message me on LinkedIn for now.', 'err'); return; }
       send.disabled = true; say('Sending...');
+      var subj = document.getElementById('f-subject'), topic = document.getElementById('f-topic').value, who = document.getElementById('f-name').value.trim();
+      if(subj){ subj.value = 'reggie-james.com: ' + topic + ' (' + who + ')'; }
       fetch(endpoint, {method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)})
         .then(function(r){
-          if(r.ok){ form.reset(); say('Thank you. Your message has been sent and I will be in touch soon.', 'ok'); }
-          else { say('Your message could not be sent. Please try again, or message me on LinkedIn.', 'err'); }
+          if(r.ok){ form.reset(); say('Thank you. Your message has been sent and I will be in touch soon.', 'ok'); return; }
+          return r.json().then(function(d){
+            var msg = d && d.errors && d.errors.length ? d.errors.map(function(x){ return x.message; }).join(' ') : '';
+            say((msg ? msg + ' ' : 'Your message could not be sent. ') + 'Please try again, or message me on LinkedIn.', 'err');
+          }, function(){ say('Your message could not be sent. Please try again, or message me on LinkedIn.', 'err'); });
         })
         .catch(function(){ say('Your message could not be sent. Check your connection and try again, or message me on LinkedIn.', 'err'); })
         .then(function(){ send.disabled = false; });

@@ -289,7 +289,8 @@ schemaTemplate: schema-home.njk
         <p class="cl">Building, scaling or backing a technology business and need a clear route to market? Tell me a little about it and I will come back to you personally.</p>
         <p class="cs">Prefer LinkedIn? <a href="https://www.linkedin.com/in/reggiejames" target="_blank" rel="noopener">Message me there</a>.</p>
       </div>
-      <form class="form" id="contactForm" novalidate data-endpoint="{{ site.formEndpoint }}">
+      <form class="form" id="contactForm" novalidate action="{{ site.formEndpoint }}" method="POST" data-endpoint="{{ site.formEndpoint }}">
+        <input type="hidden" name="_subject" id="f-subject" value="New enquiry from reggie-james.com">
         <div class="row2">
           <label class="field"><span>Name</span><input id="f-name" name="name" type="text" autocomplete="name" required></label>
           <label class="field"><span>Email</span><input id="f-email" name="email" type="email" autocomplete="email" required></label>
