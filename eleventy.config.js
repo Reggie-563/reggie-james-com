@@ -23,7 +23,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("truncateWords", (text = "", n = 30) => {
     const w = String(text).split(/\s+/); return w.length > n ? w.slice(0, n).join(" ") + "..." : text;
   });
-  eleventyConfig.addFilter("abs", (path, base) => (path && /^https?:/.test(path)) ? path : base.replace(/\/$/, "") + (path || "/"));
+  const enc = (p = "") => { try { return encodeURI(decodeURI(p)); } catch { return encodeURI(p); } };
+  eleventyConfig.addFilter("enc", enc);
+  eleventyConfig.addFilter("abs", (path, base) => (path && /^https?:/.test(path)) ? path : base.replace(/\/$/, "") + enc(path || "/"));
+  eleventyConfig.addFilter("sourceName", (u = "") => /linkedin|lnkd\.in/i.test(u) ? "LinkedIn" : /substack/i.test(u) ? "Substack" : /medium\.com/i.test(u) ? "Medium" : "the original site");
   eleventyConfig.addFilter("json", (v) => JSON.stringify(v));
   eleventyConfig.addFilter("head", (arr = [], n) => arr.slice(0, n));
 

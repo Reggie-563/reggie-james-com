@@ -20,7 +20,7 @@ schemaTemplate: schema-thinking.njk
     <ul class="posts posts-all">
       {%- for p in collections.thinking %}
       <li class="post-card"><a href="{{ p.url }}">
-        {%- if p.data.image %}<img src="{{ p.data.image }}" alt="{{ p.data.imageAlt }}" loading="lazy" width="1200" height="675">{% endif %}
+        {%- if p.data.image %}<img src="{{ p.data.image | enc }}" alt="{{ p.data.imageAlt }}" loading="lazy" width="1200" height="675">{% endif %}
         <span class="pc-meta">{{ p.date | ukDate }}, {{ p.content | readingTime }}</span>
         <h3>{{ p.data.title }}</h3>
         <p>{{ p.data.description }}</p>

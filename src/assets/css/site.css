@@ -405,3 +405,5 @@ body.lb-open{overflow:hidden}
 @media (max-width:1100px){.posts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:900px){.faq-grid{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:600px){.posts{grid-template-columns:minmax(0,1fr)}.prose{font-size:1.0625rem}.prose blockquote{font-size:1.25rem}}
+.prose .orig{margin-top:2em;padding-top:1.25em;border-top:1px solid var(--line-l);font-size:1rem;color:var(--ink-dim)}
+.prose .orig a{font-weight:600}
