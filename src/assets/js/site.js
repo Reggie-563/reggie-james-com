@@ -27,7 +27,7 @@
       if(window.innerWidth <= 900){ fitWords(); }
       else { mast.querySelectorAll('.mw').forEach(function(w){ w.style.fontSize = ''; }); fit(mast); }
     }
-    fit(big);
+    if(!document.body.classList.contains('theme-monocle')) fit(big);
   }
   fitAll();
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(fitAll); }

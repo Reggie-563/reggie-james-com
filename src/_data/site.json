@@ -1,8 +1,8 @@
 {
   "name": "Reggie James",
   "url": "https://reggie-james.com",
-  "title": "Reggie James | Go-to-Market Strategy for B2B Technology Companies",
-  "description": "Go-to-market strategy for founders, CEOs and investors in B2B technology. Reggie James built and sold DC Storm to Rakuten, founded Digital Clarity and is COO of DBMM Group Inc. (OTC: DBMM).",
+  "title": "Reggie James | Commercial Adviser to CEOs, Founders and Investors",
+  "description": "The right decisions change everything. Reggie James helps CEOs, founders, boards and investors make them, drawing on 25 years building technology businesses, a Rakuten exit and executive roles in a US public company.",
   "locale": "en_GB",
   "location": "Guildford, Surrey and London",
   "image": "https://reggie-james.com/og-image.jpg",
@@ -23,5 +23,6 @@
     "digitalClarity": "https://www.digital-clarity.com",
     "digitalClarityInsights": "https://www.digital-clarity.com/insights",
     "digitalClarityLinkedin": "https://www.linkedin.com/company/digital-clarity"
-  }
+  },
+  "theme": ""
 }

@@ -34,19 +34,23 @@
 <link rel="preload" href="/assets/img/hero.webp" as="image">
 {%- endif %}
 <link rel="stylesheet" href="/assets/css/site.css">
+{%- if site.theme %}
+<link rel="preload" href="/assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/{{ site.theme }}.css">
+{%- endif %}
 {%- if schemaTemplate %}{% include schemaTemplate %}{% endif %}
 </head>
-<body class="{{ bodyClass }}">
+<body class="{{ bodyClass }}{% if site.theme %} theme-{{ site.theme }}{% endif %}">
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav{% if bodyClass == 'inner' %} solid{% endif %}" id="nav" aria-label="Main">
   <div class="wrap">
     <a class="mark" href="/">Reggie James<i>.</i></a>
     <ul>
-      <li><a href="/#story">Career</a></li>
-      <li><a href="/#companies">Companies</a></li>
+      <li><a href="/#services">How I help</a></li>
+      <li><a href="/#story">Experience</a></li>
       <li><a href="/#perspectives">Perspectives</a></li>
       <li><a href="/thinking/"{% if '/thinking/' in purl %} aria-current="page"{% endif %}>Thinking</a></li>
-      <li><a class="pill" href="/#contact">Get in touch</a></li>
+      <li><a class="pill" href="/#contact">Let's talk</a></li>
     </ul>
   </div>
 </nav>
