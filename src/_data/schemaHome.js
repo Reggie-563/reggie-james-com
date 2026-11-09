@@ -18,10 +18,10 @@ export default function () {
       homeLocation: { "@type": "Place", name: "Guildford, Surrey, United Kingdom" },
       workLocation: { "@type": "Place", name: "London, United Kingdom" },
       makesOffer: [
-        ["Go-to-market strategy", "For B2B technology companies: ideal customer and segment priorities, positioning and proposition, pricing and packaging, sales motion and channels, and a 90-day plan. Starts with a fixed-fee go-to-market review."],
+        ["Go-to-market strategy", "For B2B technology companies: ideal customer and segment priorities, positioning and proposition, pricing and packaging, sales motion and channels, and a growth accelerator programme built around where the company is today. Starts with a go-to-market review scoped on a discovery call."],
         ["Marketing that drives pipeline", "Messaging for senior buyers, a demand and pipeline model tied to revenue targets, content and channel plans, AI search visibility and board-level reporting."],
         ["Execution and commercial leadership", "Hands-on leadership of sales and marketing, alignment with product, commercial team structure and partner management, on a monthly or fractional executive basis."],
-        ["Commercial due diligence and portfolio growth", "For investors in B2B technology: pre-deal commercial and go-to-market assessment, 100-day growth plans and go-to-market reviews across a portfolio."]
+        ["Commercial due diligence and portfolio growth", "For investors in B2B technology: pre-deal commercial and go-to-market assessment, a portfolio accelerator for companies behind plan, and go-to-market reviews across a portfolio."]
       ].map(([name, description]) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name, description, provider: id("person"), areaServed: ["United Kingdom", "Europe", "United States"] } })),
       sameAs: [s.linkedin, s.instagram, s.x, s.substack, s.medium, s.podcast, s.youtube]
     },
