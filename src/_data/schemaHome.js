@@ -11,17 +11,17 @@ export default function () {
     { "@type": "ImageObject", "@id": `${u}/#portrait`, url: `${u}/assets/img/hero.webp`, contentUrl: `${u}/assets/img/hero.webp`, width: 1122, height: 1402, caption: "Reggie James" },
     {
       "@type": "Person", "@id": `${u}/#person`, name: "Reggie James", url: `${u}/`, image: id("portrait"),
-      jobTitle: "Commercial adviser to CEOs, founders and investors; Founder, Digital Clarity; COO and Executive Director, DBMM Group Inc.",
-      description: "UK business adviser and operator who helps CEOs, founders, boards and investors make the decisions that shape a business. 25 years in technology markets: founded Digital Clarity in 2002, built DC Storm through to its acquisition by Rakuten, led commercial operations for an internet business listed in Singapore, and since 2011 has served as COO, Senior Vice President and Executive Director of Digital Brand Media & Marketing Group, Inc. (OTC: DBMM). Earlier commercial roles at AltaVista, VNU and Ziff Davis.",
+      jobTitle: "Go-to-market and growth adviser to B2B tech leaders and investors; Founder, Digital Clarity; COO and Executive Director, DBMM Group Inc.",
+      description: "UK go-to-market and growth adviser to B2B technology leaders and the investors who back them. 25 years in technology markets: founded Digital Clarity in 2002, built DC Storm through to its acquisition by Rakuten, led commercial operations for an internet business listed in Singapore, and since 2011 has served as COO, Senior Vice President and Executive Director of Digital Brand Media & Marketing Group, Inc. (OTC: DBMM). Earlier commercial roles at AltaVista, VNU and Ziff Davis.",
       worksFor: [id("digital-clarity"), id("dbmm")],
       knowsAbout: ["Commercial strategy", "Board and CEO advisory", "Growth strategy", "Commercial due diligence", "Portfolio value creation", "Go-to-market strategy", "B2B marketing", "Business development", "Proposition development", "Positioning", "Product commercialisation", "Market entry", "Brand strategy", "Applied AI", "AI search and the B2B buyer journey", "Sales and marketing alignment", "Partnerships", "Public-company governance"],
       homeLocation: { "@type": "Place", name: "Guildford, Surrey, United Kingdom" },
       workLocation: { "@type": "Place", name: "London, United Kingdom" },
       makesOffer: [
-        ["The CEO's Commercial Adviser", "Monthly advisory for founders and CEOs on growth decisions, commercial priorities, market positioning, investment and execution."],
-        ["The Growth and Performance Review", "A fixed-fee, independent review of the commercial model for businesses investing in growth without the expected returns, with board-level recommendations."],
-        ["The Investor's Commercial Partner", "Pre-investment commercial assessment, proposition and market reviews, post-investment growth priorities and support for portfolio leadership teams."],
-        ["The Next Chapter", "Strategic projects for businesses changing direction: new markets, new propositions, commercialising technology and adapting to AI-driven change, with optional fractional executive involvement."]
+        ["Go-to-market strategy", "For B2B technology companies: ideal customer and segment priorities, positioning and proposition, pricing and packaging, sales motion and channels, and a 90-day plan. Starts with a fixed-fee go-to-market review."],
+        ["Marketing that drives pipeline", "Messaging for senior buyers, a demand and pipeline model tied to revenue targets, content and channel plans, AI search visibility and board-level reporting."],
+        ["Execution and commercial leadership", "Hands-on leadership of sales and marketing, alignment with product, commercial team structure and partner management, on a monthly or fractional executive basis."],
+        ["Commercial due diligence and portfolio growth", "For investors in B2B technology: pre-deal commercial and go-to-market assessment, 100-day growth plans and go-to-market reviews across a portfolio."]
       ].map(([name, description]) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name, description, provider: id("person"), areaServed: ["United Kingdom", "Europe", "United States"] } })),
       sameAs: [s.linkedin, s.instagram, s.x, s.substack, s.medium, s.podcast, s.youtube]
     },

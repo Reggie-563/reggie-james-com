@@ -470,3 +470,40 @@ body.lb-open{overflow:hidden}
   .hero-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
   .hero-stats li{padding-right:10px}.hero-stats li + li{padding-left:12px}
 }
+
+/* ---- Focus: tech leaders and investors, outcome-led (Nov 2026) ---- */
+.hero-stats{grid-template-columns:repeat(3,minmax(0,auto))}
+.hero-stats span{max-width:13em;line-height:1.35}
+.who-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.who-card{background:var(--chalk);border:1px solid var(--line-l);border-top:4px solid var(--graphite);border-radius:8px;padding:clamp(24px,3vw,40px);display:grid;gap:14px;align-content:start;min-width:0}
+.who-card.inv{border-top-color:var(--amber)}
+.who-card h3{font-family:var(--display);font-stretch:64%;font-weight:800;text-transform:uppercase;font-size:clamp(2.25rem,4vw,3.25rem);line-height:.9}
+.who-sub{font-weight:600;color:var(--graphite)}
+.who-label,.svc .get,.svc-label{font-size:.8125rem;font-weight:600;color:#B86E0E;margin-top:4px}
+.pains{display:grid;gap:0;border-top:1px solid var(--line-l)}
+.pains li{padding-block:12px;border-bottom:1px solid var(--line-l);font-family:var(--display);font-stretch:85%;font-weight:500;font-size:1.1875rem;line-height:1.3;color:var(--graphite)}
+.who-out{margin-top:6px;color:#2C3238;line-height:1.55}
+.who-out span{display:block;font-size:.8125rem;font-weight:600;color:var(--graphite);margin-bottom:4px}
+
+.services .svc{color:var(--graphite)}
+.services .svc.inv{border-top:4px solid var(--amber)}
+.svc-label{margin-top:0;color:var(--ink-dim)}
+.svc .for{font-family:var(--display);font-stretch:85%;font-weight:600;font-size:1.25rem;line-height:1.25}
+.svc-list{display:grid;gap:8px}
+.svc-list li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px;color:#2C3238;line-height:1.45}
+.svc-list li::before{content:"";width:8px;height:8px;margin-top:.45em;background:var(--amber);transform:rotate(45deg)}
+
+.how-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px);margin-top:8px}
+.how-steps li{display:grid;gap:10px;align-content:start;border-top:2px solid var(--graphite);padding-top:18px;min-width:0}
+.how-steps .sn{font-family:var(--display);font-stretch:62%;font-weight:800;font-size:3rem;line-height:.9;color:#B86E0E}
+.how-steps h3{font-family:var(--display);font-stretch:72%;font-weight:700;text-transform:uppercase;font-size:1.625rem;line-height:1}
+.how-steps p{color:#2C3238}
+.why{background:var(--stone-2)}
+
+@media (max-width:900px){.who-grid,.how-steps{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){
+  .hero-stats{grid-template-columns:minmax(0,1fr)}
+  .hero-stats li,.hero-stats li + li{padding:14px 0;border-left:0;border-bottom:1px solid var(--line-d);display:flex;align-items:baseline;gap:14px}
+  .hero-stats b{font-size:1.75rem;flex:none}
+}
+.who-band .pe-head,.how .pe-head{margin-bottom:clamp(40px,5vw,64px)}
