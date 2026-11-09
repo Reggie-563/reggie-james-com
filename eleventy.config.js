@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 export default function (eleventyConfig) {
   const showDrafts = process.env.INCLUDE_DRAFTS === "true";
 
@@ -66,6 +68,12 @@ export default function (eleventyConfig) {
       { "@type": "ListItem", position: 2, name: "Thinking", item: base + "/thinking/" },
       { "@type": "ListItem", position: 3, name: d.title, item: url } ] };
     return [post, crumbs].map((o) => '<script type="application/ld+json">' + JSON.stringify(o).replace(/</g, "\\u003c") + "</script>").join("\n");
+  });
+
+  // Cache-busting: ?v= changes whenever the file's contents change, so browsers never keep stale CSS or JS.
+  eleventyConfig.addFilter("bust", (path) => {
+    try { return path + "?v=" + createHash("md5").update(readFileSync("src" + path)).digest("hex").slice(0, 10); }
+    catch { return path; }
   });
 
   eleventyConfig.addGlobalData("buildDate", () => new Date().toISOString().slice(0, 10));

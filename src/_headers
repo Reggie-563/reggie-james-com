@@ -1,7 +1,17 @@
-/assets/*
+/assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/img/*
+  Cache-Control: public, max-age=604800, must-revalidate
+/assets/posters/*
+  Cache-Control: public, max-age=604800, must-revalidate
+/assets/uploads/*
+  Cache-Control: public, max-age=604800, must-revalidate
 /videos/*
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=604800
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
