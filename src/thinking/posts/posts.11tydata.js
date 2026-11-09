@@ -8,6 +8,9 @@ const slugify = (s = "") =>
 
 export default {
   layout: "post.njk",
+  schemaTemplate: "schema-post.njk",
+  ogType: "article",
+  bodyClass: "inner",
   eleventyComputed: {
     title: (data) => clean(data.title),
     description: (data) => clean(data.description),

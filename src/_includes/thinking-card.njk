@@ -1,0 +1,14 @@
+<li class="tcard{% if featured %} feat{% endif %}">
+  <a href="{{ item.url }}"{% if not item.internal %} target="_blank" rel="noopener"{% endif %}>
+    <span class="tc-img">
+      {%- if item.image %}<img src="{{ item.image }}" alt="{{ item.imageAlt or item.title }}" loading="lazy" decoding="async" referrerpolicy="no-referrer" width="1200" height="675" onerror="this.remove()">{% endif %}
+      <span class="tc-ph" aria-hidden="true">{{ item.source if not item.internal else "Thinking" }}</span>
+    </span>
+    <span class="tc-body">
+      <span class="pc-meta"><b class="src src-{{ item.source | lower }}">{{ "reggie-james.com" if item.internal else item.source }}</b>{% if item.date %}<time datetime="{{ item.date | isoDate }}">{{ item.date | ukDate }}</time>{% endif %}</span>
+      <h3>{{ item.title }}</h3>
+      {%- if item.excerpt %}<p>{{ item.excerpt }}</p>{% endif %}
+      <span class="pc-more">{{ "Read the article" if item.internal else "Read on " + item.source }}</span>
+    </span>
+  </a>
+</li>

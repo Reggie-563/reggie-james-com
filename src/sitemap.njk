@@ -3,10 +3,11 @@ permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>{{ site.url }}/</loc>
     <lastmod>{{ buildDate }}</lastmod>
+    <image:image><image:loc>{{ site.url }}/assets/img/hero.webp</image:loc></image:image>
     {%- for c in clips %}
     <video:video>
       <video:thumbnail_loc>{{ site.url }}/assets/posters/{{ c.slug }}.jpg</video:thumbnail_loc>
@@ -18,6 +19,6 @@ eleventyExcludeFromCollections: true
   </url>
   <url><loc>{{ site.url }}/thinking/</loc><lastmod>{{ buildDate }}</lastmod></url>
   {%- for p in collections.thinking %}
-  <url><loc>{{ p.url | abs(site.url) }}</loc><lastmod>{{ (p.data.updated or p.date) | isoDate }}</lastmod></url>
+  <url><loc>{{ p.url | abs(site.url) }}</loc><lastmod>{{ (p.data.updated or p.date) | isoDate }}</lastmod>{% if p.data.image %}<image:image><image:loc>{{ p.data.image | abs(site.url) }}</image:loc></image:image>{% endif %}</url>
   {%- endfor %}
 </urlset>

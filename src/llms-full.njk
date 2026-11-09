@@ -1,0 +1,55 @@
+---
+permalink: /llms-full.txt
+eleventyExcludeFromCollections: true
+---
+# Reggie James: full profile
+
+Website: {{ site.url }}
+Positioning: The right decisions change everything. I help tech leaders make the ones that grow their business.
+Who he works with: founders, CEOs and leadership teams of B2B technology companies between value proposition and exit, and the VC, private equity and private investors who back them.
+Location: Guildford, Surrey, and London, United Kingdom.
+
+## What clients get
+
+### Go-to-market strategy
+Ideal customer and segment priorities; positioning and a proposition buyers understand; pricing and packaging review; the right sales motion and channels; a growth accelerator programme built around where the company is today.
+
+### Marketing that builds pipeline
+Messaging senior buyers respond to; a demand and pipeline model tied to revenue targets; content, channel and partner plan; visibility in AI search and answer engines; reporting the board can trust.
+
+### Execution and commercial leadership
+Hands-on leadership of sales and marketing; sales, marketing and product aligned to one plan; the right commercial team and structure; agencies and partners selected and held to account; monthly or fractional executive involvement.
+
+### For investors: commercial due diligence and portfolio growth
+Pre-deal commercial and go-to-market assessment; proposition, market and competitor review; a portfolio accelerator for companies behind plan; go-to-market reviews across the portfolio; ongoing support for portfolio leadership teams.
+
+### How engagements start
+A discovery call, then a go-to-market review scoped on that call, then delivery on a monthly or fractional basis. Digital Clarity provides a delivery team when a programme needs one.
+
+## Track record
+- Founded Digital Clarity in 2002; grew it to 25 to 30 people and more than 200 clients, including Adobe, Xerox and Bentley Systems.
+- Built DC Storm, a marketing measurement platform used by around 48% of major media planning and buying agencies, acquired by Rakuten.
+- Led commercial operations for an internet business in Singapore that listed on SIMEX and was acquired.
+- COO, Senior Vice President and Executive Director of DBMM Group Inc. (OTC: DBMM) since 2011.
+- Earlier: AltaVista global sales (HP, Compaq); technology publishing at VNU and Ziff Davis.
+- Client results: software ARR from $8m to $23m in three years; 88% EMEA revenue growth in 12 months with cost per acquisition down 37.6%; 30% more qualified demo requests year on year.
+
+## Questions and answers
+{%- for f in faqs %}
+
+Q: {{ f.q | safe }}
+A: {{ f.a | safe }}
+{%- endfor %}
+
+## Writing
+{%- for item in collections.thinking | thinkingList(feeds, 20) %}
+- {{ item.title | safe }} ({{ "reggie-james.com" if item.internal else item.source }}{% if item.date %}, {{ item.date | isoDate }}{% endif %}): {{ item.url | abs(site.url) if item.internal else item.url }}
+{%- endfor %}
+
+## Video clips
+{%- for c in clips %}
+- {{ c.title | safe }}: {{ c.summary | safe }} {{ site.url }}/videos/{{ c.slug }}.mp4
+{%- endfor %}
+
+## Contact
+Use the contact form at {{ site.url }}/#contact or LinkedIn: {{ site.social.linkedin }}

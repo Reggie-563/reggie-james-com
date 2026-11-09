@@ -193,4 +193,58 @@
       }
     });
   }
+
+  /* Hero: photo drifts slower than the page, copy lifts and fades as you scroll away (desktop only) */
+  var heroEl = document.querySelector('.hero'), stack = document.querySelector('.cover-stack'), copy = document.querySelector('.hero-copy');
+  var wide = window.matchMedia('(min-width: 901px)');
+  if(heroEl && stack && copy && !reduce){
+    var hTick = false;
+    function heroPx(){
+      hTick = false;
+      if(!wide.matches){ stack.style.transform = ''; copy.style.transform = ''; copy.style.opacity = ''; return; }
+      var y = window.scrollY, h = heroEl.offsetHeight;
+      if(y > h * 1.2) return;
+      stack.style.transform = 'translate3d(0,' + (y * 0.22).toFixed(1) + 'px,0)';
+      copy.style.transform = 'translate3d(0,' + (y * -0.08).toFixed(1) + 'px,0)';
+      copy.style.opacity = Math.max(0, 1 - y / (h * 0.85)).toFixed(3);
+    }
+    window.addEventListener('scroll', function(){ if(!hTick){ hTick = true; requestAnimationFrame(heroPx); } }, {passive:true});
+    window.addEventListener('resize', heroPx);
+    heroPx();
+  }
+
+  /* Gentle parallax on marked backgrounds */
+  var pxEls = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+  if(pxEls.length && !reduce){
+    var pTick = false;
+    function pxUpdate(){
+      pTick = false;
+      var vh = window.innerHeight;
+      pxEls.forEach(function(el){
+        var r = el.parentElement.getBoundingClientRect();
+        if(r.bottom < -100 || r.top > vh + 100) return;
+        var c = (r.top + r.height / 2) - vh / 2;
+        el.style.transform = 'translate3d(0,' + (c * -parseFloat(el.getAttribute('data-parallax'))).toFixed(1) + 'px,0)';
+      });
+    }
+    window.addEventListener('scroll', function(){ if(!pTick){ pTick = true; requestAnimationFrame(pxUpdate); } }, {passive:true});
+    pxUpdate();
+  }
+
+  /* Sections ease into view as you reach them */
+  if(!reduce && 'IntersectionObserver' in window){
+    var rv = Array.prototype.slice.call(document.querySelectorAll('.pe-head, .chap-head, .who-card, .svc, .how-steps li, .fig, .chapter, .tcard, .why-grid > *, .faq-list details, .contact-grid > *, .scard'));
+    var vh0 = window.innerHeight;
+    rv.forEach(function(el){
+      el.classList.add('rv');
+      var sibs = Array.prototype.indexOf.call(el.parentElement.children, el);
+      el.style.transitionDelay = ((sibs % 4) * 90) + 'ms';
+      if(el.getBoundingClientRect().top < vh0 * 0.92) el.classList.add('in');
+    });
+    document.documentElement.classList.add('rv-on');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin: '0px 0px -8% 0px', threshold: 0.08});
+    rv.forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+  }
 })();

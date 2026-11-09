@@ -2,54 +2,30 @@
 layout: base.njk
 permalink: /thinking/
 bodyClass: inner
-title: "Thinking | Reggie James on Go-to-Market, Brand and AI"
-description: "Articles and notes by Reggie James on go-to-market strategy, B2B marketing, brand, applied AI and building technology businesses."
+title: "Thinking | Reggie James on Go-to-Market, Growth and AI for B2B Tech"
+description: "Articles and notes by Reggie James on go-to-market strategy, B2B marketing, growth, applied AI and building and backing technology businesses, from his site, Substack and Medium."
 schemaTemplate: schema-thinking.njk
 ---
+{%- set items = collections.thinking | thinkingList(feeds) %}
 <header class="page-head dark">
   <div class="wrap">
     <h1 class="h-sec">Thinking</h1>
-    <p class="lede">Articles and notes on go-to-market, B2B marketing, brand, applied AI and building technology businesses.</p>
+    <p class="lede">Articles and notes on go-to-market, growth, marketing and applied AI for B2B technology leaders and the investors who back them. Published here, on Substack and on Medium.</p>
+    <p class="th-follow"><a href="{{ site.social.substack }}" target="_blank" rel="noopener">Subscribe on Substack</a><a href="{{ site.social.medium }}" target="_blank" rel="noopener">Follow on Medium</a><a href="/thinking/feed.xml">RSS</a></p>
   </div>
 </header>
 
-<section class="band thinking-list" aria-labelledby="own-h">
+<section class="band thinking-list" aria-label="Latest thinking">
   <div class="wrap">
-    {%- if collections.thinking.length %}
-    <h2 class="kicker" id="own-h">Articles</h2>
-    <ul class="posts posts-all">
-      {%- for p in collections.thinking %}
-      <li class="post-card"><a href="{{ p.url }}">
-        {%- if p.data.image %}<img src="{{ p.data.image | enc }}" alt="{{ p.data.imageAlt }}" loading="lazy" width="1200" height="675">{% endif %}
-        <span class="pc-meta">{{ p.date | ukDate }}, {{ p.content | readingTime }}</span>
-        <h3>{{ p.data.title }}</h3>
-        <p>{{ p.data.description }}</p>
-        <span class="pc-more">Read the article</span>
-      </a></li>
+    {%- if items.length %}
+    <ul class="tgrid">
+      {%- for item in items %}
+      {%- set featured = loop.first %}
+      {% include "thinking-card.njk" %}
       {%- endfor %}
     </ul>
     {%- else %}
-    <h2 class="kicker" id="own-h">Articles</h2>
-    <p class="empty">New articles will be published here. In the meantime, recent writing is below.</p>
-    {%- endif %}
-
-    {%- if feeds.length %}
-    <h2 class="kicker elsewhere-h">Also published on Substack and Medium</h2>
-    <ul class="posts">
-      {%- for f in feeds %}
-      <li class="post-card ext"><a href="{{ f.url }}" target="_blank" rel="noopener">
-        <span class="pc-meta">{{ f.source }}{% if f.date %}, {{ f.date | ukDate }}{% endif %}</span>
-        <h3>{{ f.title }}</h3>
-        <p>{{ f.excerpt }}</p>
-        <span class="pc-more">Read on {{ f.source }}</span>
-      </a></li>
-      {%- endfor %}
-    </ul>
-    {%- else %}
-    <div class="elsewhere">
-      <a class="pill" href="{{ site.social.substack }}" target="_blank" rel="noopener">Read on Substack</a>
-      <a class="pill ghost" href="{{ site.social.medium }}" target="_blank" rel="noopener">Read on Medium</a>
-    </div>
+    <p class="empty">New articles will appear here soon. In the meantime, read recent writing on <a href="{{ site.social.substack }}" target="_blank" rel="noopener">Substack</a> and <a href="{{ site.social.medium }}" target="_blank" rel="noopener">Medium</a>.</p>
     {%- endif %}
   </div>
 </section>
